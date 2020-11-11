@@ -36,7 +36,7 @@ router.get("/dashboard", async(req, res) => {
     } catch (t) {
         console.log("[ERROR] - ", t)
     }
-    res.render("tabla.ejs", {oParams: oParams})
+    res.render("dashboard.ejs", {oParams: oParams})
 });
 
 /**

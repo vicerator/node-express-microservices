@@ -11,7 +11,7 @@ const app = express();
 // **** ----- MIDDLEWARES ----- **** 
 app.use(express.json());
 app.use(cors())
-// app.use(morgan('dev'));
+
 // Para poder recibir fomularios.
 app.use(express.urlencoded({extended: false}))
 

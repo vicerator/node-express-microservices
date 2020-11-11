@@ -55,8 +55,8 @@
 }
 
 body, html {
-	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+  font-family: Poppins-Regular, sans-serif;
+  background-image: url('../images/bg-02.jpg');
 }
 
 /*---------------------------------------------*/
@@ -649,13 +649,11 @@ input.input100 {
 
 .list-group{
   max-height: 50vh;
-  /* margin-top: 30px; */
   margin-bottom: 10px;
   overflow:scroll;
   -webkit-overflow-scrolling: touch;
   width: 49.5%;
   float: right;
-  /* border-radius: 0px; */
 }
 
 .panel-heading{
@@ -675,4 +673,41 @@ input.input100 {
   border-top-right-radius: 0px !important
 }
 
+.card .card-footer {
+  height: 65px;
+}
 
+/*==================================================================
+[ NAV ]*/
+nav {
+  font-size: 1.2rem;
+  color: whitesmoke;
+}
+
+nav ul.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left:auto;
+}
+
+nav ul.navbar-nav span::after {
+  content: "Panel de control";
+}
+
+nav .nav-item .nav-link {
+  font-size: 1.3rem;
+}
+
+/*==================================================================
+[ WIDGET HOUR ]*/
+nav .nav-item:first-child{
+  margin-right: 20px;
+}
+
+nav .nav-item:first-child > a{
+  margin-right: 0;
+  font-size: 1.2rem;
+  color: whitesmoke;
+  text-decoration: none;
+}

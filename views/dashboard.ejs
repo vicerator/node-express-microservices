@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login Users</title>
+	<title>Dashboard</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -27,20 +27,21 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
-<body style="background-image: url('images/bg-02.jpg');">
+	<body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<span class="navbar-brand" href="#">
-			<!-- <img src="/images/icons/favicon.ico" width="20" height="20" class="d-inline-block align-center" alt=""> -->
-			Panel de control
-		</span>
+		<a class="navbar-brand" href="">
+			Home
+		</a>
 		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav" style="margin-left:auto">
-			<li class="nav-item active">
-				<a href="#" id="time_is_link" rel="nofollow" style="font-size: 22px;color: whitesmoke;margin-right: 10px;line-height: 43px;">Hora local en Almería:</a><span id="_z718" style="font-size:22px;margin-right: 50px;color:white;font-weight: bold;"></span>
-			</li>
-			<li class="nav-item active">
-				<a class="nav-link" href="/">Desconectar<i class="fa fa-power-off ml-sm-2" aria-hidden="true"></i></a>
-			</li>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a href="//24timezones.com/es_reloj/spain_almeria_hora.php" class="clock24" id="tz24-1605116942-c215336-eyJob3VydHlwZSI6MTIsInNob3dkYXRlIjoiMSIsInNob3dzZWNvbmRzIjoiMSIsInNob3d0aW1lem9uZSI6IjAiLCJ0eXBlIjoiZCIsImxhbmciOiJlcyJ9" title="Almería husos horarios" target="_blank" rel="nofollow">Almería</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/">
+						<i class="fa fa-power-off ml-sm-2" aria-hidden="true"></i>
+					</a>
+				</li>
 			</ul>
 		</div>
 	</nav>
@@ -188,9 +189,6 @@
 		</div>
 	</div>
 
-	<script src="//widget.time.is/t.js"></script>
-	<script>time_is_widget.init({_z718:{id:"Almería_z718"}});</script>
-
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -207,6 +205,8 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+
+	<script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
 
 </body>
 </html>
