@@ -1,0 +1,22 @@
+{
+  "name": "NODE_EXPRESS_MYSQL",
+  "version": "1.0.0",
+  "description": "Comandos: \r  * npm i express -D  ---->(Instalacion de express)\r  * npm i nodemon -D  ---->(Instalacion de Nodemon)\r  * npm i morgan -D  ---->(Instalacion de Morgan(Logger))",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {
+    "ejs": "^3.0.2",
+    "mysql": "^2.18.1"
+  },
+  "scripts": {
+    "dev": "nodemon src/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
