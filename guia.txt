@@ -1,0 +1,45 @@
+Tecnologías Usadas en el proyecto;
+HTML5 
+CSS3
+BOOTSTRAP
+JAVASCRIPT
+NODE 
+NODEEXPRESS
+
+===== HTML5 =====
+
+===== CSS3 =====
+
+===== BOOTSTRAP =====
+
+===== NODE =====
+Node.js es un entorno de tiempo de ejecución de JavaScript (de ahí su terminación en .js haciendo alusión al
+lenguaje JavaScript)
+
+Node nos brinda la capacidad de ejercutar codigo JS en entorno servidor sin necesidad de un motor de navegador.
+Con estos podemos realizar servidores, api rest, sercicios... con JS.
+
+Tanto JavaScript como Node.js se ejecutan en el motor de tiempo de ejecución JavaScript V8 
+(V8 es el nombre del motor de JavaScript que alimenta Google Chrome. Es lo que toma nuestro JavaScript 
+y lo ejecuta mientras navega con Chrome). Este motor coge el código JavaScript y 
+lo convierte en un código de máquina más rápido. 
+
+Node.js utiliza un modelo de entrada y salida sin bloqueo controlado por eventos que lo hace ligero y eficiente 
+(con entrada nos referimos a solicitudes y con salida a respuestas). 
+Puede referirse a cualquier operación, desde leer o escribir archivos de cualquier tipo hasta hacer una solicitud HTTP. 
+
+
+Ventajas de Node.js
+
+En primer lugar y como gran ventaja, es tener Javascript incorporado en la plataforma Node.js, 
+siendo un lenguaje fácil de aprender y que puede ser manejado por programadores de Java.
+
+El modelo de entrada y salida impulsado por eventos ayuda mucho en el manejo simultáneo de peticiones.
+
+Con la implementación de plataformas de desarrollo de software como GitHub Inc., la comunidad Node.js ha crecido de forma exponencial y activa.
+
+Node.js es la plataforma de software más utilizada en este momento estando por encima en entornos de ejecución y 
+lenguajes de programación como PHP y C a la vez que tiene un tiempo de ejecución (tiempo real) muy superior.
+
+Node.js es una de las tecnologías más usadas hoy en día, y se ha convertido en una de las plataformas más populares utilizadas para el desarrollo de aplicaciones web, 
+aplicaciones de escritorio y servicios

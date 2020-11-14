@@ -1,3 +1,5 @@
+const URL = "http://localhost:8090";
+
 (function ($) {
     "use strict";
     /*==================================================================
@@ -112,13 +114,13 @@ function manageJavaMicro(e){
             var iRandom = Math.floor(Math.random() * (1000 - 1)) + 1;
             switch (sTypefetch) {
                 case "add":
-                   url="http://localhost:8090/add?descripcion=Descripcininsertada%20para%20probar"
+                   url=URL+"/add?descripcion=Descripcininsertada%20para%20probar"
                 break;
                 case "get":
-                    url="http://localhost:8090/get/"+String(iRandom);
+                    url=URL+"/get/"+String(iRandom);
                 break;
                 case "delete":
-                    url="http://localhost:8090/delete/"+String(iRandom);
+                    url=URL+"/delete/"+String(iRandom);
                 break;
             }
             if(url){
