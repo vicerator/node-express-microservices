@@ -29,13 +29,14 @@
 </head>
 	<body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="">
-			Home
-		</a>
+		<a class="navbar-brand" href=""><span></span><i class="fa fa-home ml-sm-2" aria-hidden="true"></i></a>
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a href="//24timezones.com/es_reloj/spain_almeria_hora.php" class="clock24" id="tz24-1605116942-c215336-eyJob3VydHlwZSI6MTIsInNob3dkYXRlIjoiMSIsInNob3dzZWNvbmRzIjoiMSIsInNob3d0aW1lem9uZSI6IjAiLCJ0eXBlIjoiZCIsImxhbmciOiJlcyJ9" title="Almería husos horarios" target="_blank" rel="nofollow">Almería</a>
+				<li class="nav-item timeText">
+					<a href="//24timezones.com/es_reloj/spain_almeria_hora.php" class="timeText clock24" id="tz24-1605116942-c215336-eyJob3VydHlwZSI6MTIsInNob3dkYXRlIjoiMSIsInNob3dzZWNvbmRzIjoiMSIsInNob3d0aW1lem9uZSI6IjAiLCJ0eXBlIjoiZCIsImxhbmciOiJlcyJ9" title="Almería husos horarios" target="_blank" rel="nofollow">Almería</a>
+				</li>
+				<li class="nav-item timeNotText">
+					<div class="timeText cleanslate w24tz-current-time w24tz-middle"><p><a href="//24timezones.com/es_reloj/spain_almeria_hora.php" style="text-decoration: none" class="clock24" id="tz24-1605348869-c215336-eyJob3VydHlwZSI6MTIsInNob3dkYXRlIjoiMCIsInNob3dzZWNvbmRzIjoiMCIsImNvbnRhaW5lcl9pZCI6ImNsb2NrX2Jsb2NrX2NiNWZhZmFlMDVkZjM0MCIsInR5cGUiOiJkYiIsImxhbmciOiJlcyJ9" title="hora local Almería" target="_blank" rel="nofollow"></a></p><div id="clock_block_cb5fafae05df340"></div></div>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/">
@@ -45,150 +46,154 @@
 			</ul>
 		</div>
 	</nav>
-	
-	<div class="limiter">
-		<div class="container-table table-responsive">
-			<div class="card-group shadow-lg">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="column-card">
 				<div class="card">
-				  <div class="card-body">
+					<div class="card-body">
 					<h5 class="card-title">Inserción</h5>
 					<p class="card-text">
-						 Inserción de 1.000 nuevos registros en la tabla residual.
-						 Encadenar varias llamadas seguidas podria dañar el rendimiento de la aplicación.
+							Inserción de 1.000 nuevos registros en la tabla residual.
+							Encadenar varias llamadas seguidas podria dañar el rendimiento de la aplicación.
 					</p>
-				  </div>
-				  <div class="card-footer">
+					</div>
+					<div class="card-footer">
 					<form method="POST" action="/dashboard/addmasive/">
 						<button class="btn btn-primary btn-block">Ejecutar</button>
 					</form>
-				  </div>
+					</div>
 				</div>
+			</div>
+			<div class="column-card">
+				<div class="card deleteCard">
+					<div class="card-body">
+					  <h5 class="card-title">Borrado</h5>
+					  <p class="card-text">Elimina todos los registros de la tabla residual, de forma eficiente e ineficiente.
+						  Asegurese de que la base tiene registros.
+					  </p>
+					</div>
+					<div class="card-footer">
+					 	<form method="GET" action="/dashboard/efidelete/">
+							<button class="btn btn-primary btn-success">Eficiente</button>
+						</form>
+					  	<form method="GET" action="/dashboard/inedelete/">
+						  <button class="btn btn-primary btn-warning">Ineficiente</button>
+					  	</form>
+					</div>
+				  </div>
+			</div>
+			<div class="column-card">
 				<div class="card">
-				  <div class="card-body">
-					<h5 class="card-title">Borrado</h5>
-					<p class="card-text">Elimina todos los registros de la tabla residual, de forma eficiente e ineficiente.
-						Asegurese de que la base tiene registros.
-					</p>
-				  </div>
-				  <div class="card-footer">
-					<form method="GET" action="/dashboard/inedelete/">
-						<button class="btn btn-primary btn-warning float-right" style="width: 45%;">Ineficiente</button>
-					</form>
-					<form method="GET" action="/dashboard/efidelete/">
-						<button class="btn btn-primary btn-success" style="width: 45%;">Eficiente</button>
-					</form>
-				  </div>
-				</div>
-				<div class="card">
-				  <div class="card-body">
-						<h5 class="card-title">Ciclo temporal</h5>	
-						<p class="card-text">Lanza peticiones embebidas en un ciclo temporal en el tiempo indicado en milisegundos. Un tiempo demasido bajo podria dañar el rendimiento de la aplicación.</p>
-				  </div>
-				  <div class="card-footer">
-					<form class="form-inline">
-						<div class="form-group align-items-center">
-						  <div class="col-sm-5">
+					<div class="card-body">
+							<h5 class="card-title">Ciclo temporal</h5>	
+							<p class="card-text">Lanza peticiones embebidas en un ciclo temporal en el tiempo indicado en milisegundos. Un tiempo demasido bajo podria dañar el rendimiento de la aplicación.</p>
+					</div>
+					<div class="card-footer">
+						<form class="form-inline cicleTime">
 							<label class="sr-only" for="cliclotemporal">Milisegundos</label>
 							<input type="text" class="form-control" id="cliclotemporal" placeholder="Milisegundos">
-						  </div>
-						  <div class="col-auto">
 							<button type="button" class="btn btn-primary" onclick="clicleTemporal()">Ejecutar</button>
-						  </div>
-						</div>
-					  </form>
-				  </div>
+						</form>
+					</div>
 				</div>
-				<div class="card">
+			</div>
+			<div class="column-card">
+				<div class="card errorCard">
 					<div class="card-body">
 					  <h5 class="card-title">Errores</h5>
 					  <p class="card-text">Ejecuta peticiones erroneas sobre la base datos de forma única o cíclica cada segundo.</p>
 					</div>
 					<div class="card-footer">
 						<form method="GET" action="/dashboard/cicleerror/">
-							<button class="btn btn-primary btn-danger float-right" style="width: 45%;">Cíclico</button>
+							<button class="btn btn-primary btn-danger">Cíclico</button>
 						</form>
 						<form method="GET" action="/dashboard/unicerror/">
-							<button class="btn btn-primary btn-danger" style="width: 45%;">Única</button>
+							<button class="btn btn-primary btn-danger">Única</button>
 						</form>
 					</div>
 				</div>
-				<div class="card">
+			</div>
+			<div class="column-card">
+				<div class="card mjCard">
 					<div class="card-body">
 					  <h5 class="card-title">Java micro serivicios</h5>
 					  <p class="card-text">Realiza peticiones a microservicios JAVA. Para obtener un registro, insertar un nuevo registros o eliminar un registro de forma automática.
 					  </p>
 					</div>
 					<div class="card-footer">
-					  <button id="add" class="btn btn-primary btn-primary" style="width: 32%;" onclick="manageJavaMicro(this)">ADD</button>  
-					  <button id="get" class="btn btn-primary btn-primary" style="width: 32%;" onclick="manageJavaMicro(this)">GET</button>
-					  <button id="delete" class="btn btn-primary btn-primary" style="width: 32%;" onclick="manageJavaMicro(this)">DELETE</button>
+					  <button id="add" class="btn btn-primary btn-primary" onclick="manageJavaMicro(this)">ADD</button>  
+					  <button id="get" class="btn btn-primary btn-primary" onclick="manageJavaMicro(this)">GET</button>
+					  <button id="delete" class="btn btn-primary btn-primary" onclick="manageJavaMicro(this)">DELETE</button>
 					</div>
 				  </div>
 			  </div>
-			<table class="table table-striped table-hover table-bordered shadow-lg mt-sm-4">
-				<caption>
-					<a href="/dashboard/deleteuser/" style="margin-right: 15px;" class="btn btn-danger">Eliminar todos</a>
-					<form method="POST" action="/dashboard/deleteuser/" style="margin-top: -48px;">
-						<div class="input-group mb-3">
-							<input type="text" class="form-control" placeholder="Usuario ha eliminar (Indique su ID)" name="iduser">
-							<div class="input-group-append">
-								<button style="margin-right: 15px;" class="btn btn-danger">Eliminar</button>
-							</div>
+			</div>
+		<div class="row">
+			<div class="column-table" style="min-width: 0;">
+				<table class="table table-striped table-hover shadow-lg mt-sm-4">
+					<caption>
+						<div class="captioncontainer">
+							<a href="/dashboard/deleteuser/" class="btn btn-danger">Eliminar todos</a>
+							<form method="POST" action="/dashboard/deleteuser/">
+								<input type="text" class="form-control" placeholder="ID de usuario a eliminar" name="iduser">
+								<button class="btn btn-danger">Eliminar</button>
+							</form>
 						</div>
-					</form>
-				</caption>
-				<thead>
-				  <tr>
-					<th scope="col">ID</th>
-					<th scope="col">Usuario</th>
-					<th scope="col">Correo</th>
-					<th scope="col">Nombre Completo</th>
-					<th scope="col">Contraseña</th>
-				  </tr>
-				</thead>
-				<tbody style="overflow: scroll; ">
-					<% if (oParams && oParams.allUsers.length) { %>
-						<% oParams.allUsers.forEach(function(user) { %>
-						<tr>
-							<th scope="row"><%= user.id %></th>
-							<td><%= user.username %></td>
-							<td><%= user.email %></td>
-							<td><%= user.fullname %></td>
-							<td><%= user.password %></td>
-						</tr>
-					<% }); %>
-				  <% } %>
-				</tbody>
-			
-			  </table>
-			  <div class="panel panel-primary" id="result_panel">
-				<div class="panel-heading">
-					Numero de registros de tabla <strong>"garbage"</strong>: 
-					<strong style="float:right;margin-right:10px">
-						<% if (oParams && oParams.allGarbage.length) { %>
-							<%= oParams.allGarbage.length %>
-						<% } %>	
-						<% if (oParams.allGarbage.length <= 0) { %>
-							0
-						<% } %>
-					</strong>
-				</div>
-				<div class="panel-body">
-					<ul class="list-group">
-						<% if (oParams && oParams.allGarbage.length) { %>
-							<% oParams.allGarbage.forEach(function(element) { %>
-								<li class="list-group-item"><%= element.description %></li>
-							<% }); %>
-						<% } %>
-						<% if (oParams.allGarbage.length <= 0) { %>
-							<li class="list-group-item"><strong>No existen registros</strong></li>
-						<% } %>
-					</ul>
+					</caption>
+					<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Usuario</th>
+						<th scope="col">Correo</th>
+						<th scope="col">Nombre Completo</th>
+						<th scope="col">Contraseña</th>
+					</tr>
+					</thead>
+					<tbody style="overflow: scroll; ">
+						<% if (oParams && oParams.allUsers.length) { %>
+							<% oParams.allUsers.forEach(function(user) { %>
+							<tr>
+								<th scope="row"><%= user.id %></th>
+								<td><%= user.username %></td>
+								<td><%= user.email %></td>
+								<td><%= user.fullname %></td>
+								<td><%= user.password %></td>
+							</tr>
+						<% }); %>
+					<% } %>
+					</tbody>
+				</table>
+				
+			</div>
+			<div class="column-table">
+				<div class="panel panel-primary" id="result_panel">
+					<div class="panel-heading">
+						Registros de tabla <strong>"garbage"</strong>: 
+						<strong style="float:right;margin-right:10px">
+							<% if (oParams && oParams.allGarbage.length) { %>
+								<%= oParams.allGarbage.length %>
+							<% } %>	
+							<% if (oParams.allGarbage.length <= 0) { %>
+								0
+							<% } %>
+						</strong>
+					</div>
+					<div class="panel-body">
+						<ul class="list-group">
+							<% if (oParams && oParams.allGarbage.length) { %>
+								<% oParams.allGarbage.forEach(function(element) { %>
+									<li class="list-group-item"><%= element.description %></li>
+								<% }); %>
+							<% } %>
+							<% if (oParams.allGarbage.length <= 0) { %>
+								<li class="list-group-item"><strong>No existen registros</strong></li>
+							<% } %>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

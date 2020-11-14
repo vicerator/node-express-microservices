@@ -1,67 +1,61 @@
 (function ($) {
     "use strict";
-
-
     /*==================================================================
     [ Focus Contact2 ]*/
     $('.input100').each(function(){
         $(this).on('blur', function(){
             if($(this).val().trim() != "") {
                 $(this).addClass('has-val');
-            }
-            else {
+            }else {
                 $(this).removeClass('has-val');
             }
-        })    
-    })
-  
-  
-    /*==================================================================
-    [ Validate ]*/
-    var input = $('.validate-input .input100');
-
-    $('.validate-form').on('submit',function(){
-        var check = true;
-
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
-            }
-        }
-
-        return check;
-    });
-
-
-    $('.validate-form .input100').each(function(){
-        $(this).focus(function(){
-           hideValidate(this);
         });
     });
 
-    function validate (input) {
+    /*==================================================================
+    [ Validate ]*/
+    let isValid = (input) => {
         if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
             if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
                 return false;
             }
-        }
-        else {
+        }else {
             if($(input).val().trim() == ''){
                 return false;
             }
         }
     }
 
+    var input = $('.validate-input .input100');
+    $('.validate-form').on('submit',function(){
+        var check = true;
+        for(var i=0; i<input.length; i++) {
+            if(isValid(input[i]) == false){
+                showValidate(input[i]);
+                check=false;
+            }
+        }
+        return check;
+    });
+
+    /**
+     * 
+     */
+    $('.validate-form .input100').each(function(){
+        $(this).focus(function(){
+           hideValidate(this);
+        });
+    });
+
+
+
     function showValidate(input) {
         var thisAlert = $(input).parent();
-
         $(thisAlert).addClass('alert-validate');
     }
 
     function hideValidate(input) {
         var thisAlert = $(input).parent();
-
         $(thisAlert).removeClass('alert-validate');
     }
     
@@ -72,24 +66,25 @@
  * CICLO TEMPORAL 
  */
 function clicleTemporal(){
-    var iTemptime = 0;
-    var iTime = 3000;
-    var oInput = $(window.document.body).find("#cliclotemporal");
+    let bClear = false;
+    let iTemptime = 0;
+    let iTime = 3000;
+    let oInput = $(window.document.body).find("#cliclotemporal");
 
     iTemptime = oInput.val();
     console.log("Valor en milisegundos:" + iTemptime);
-    
+
     if(iTemptime && !isNaN(iTemptime)){
         iTime = iTemptime;
     }
     // GET
-    setInterval(() => {
+    var intervalGet = setInterval(() => {
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(response => response.json())
             .then(json => console.log(json));
     }, iTime);
     // PUT
-    setInterval(() => {
+    var intervalPut = setInterval(() => {
         fetch('https://jsonplaceholder.typicode.com/posts/1', {
             method: 'PUT',
             body: JSON.stringify({
@@ -103,6 +98,7 @@ function clicleTemporal(){
             }
         }).then(response => response.json()).then(json => console.log(json))
     }, iTime);
+
 }
 
 /**
@@ -144,7 +140,7 @@ function manageJavaMicro(e){
             }
         }
     } catch (t) {
-        
+        console.log("[ERROR] - manageJavaMicro :" + t);        
     }
 }
 
