@@ -4,6 +4,7 @@
   "description": "Comandos: \r  * npm i express -D  ---->(Instalacion de express)\r  * npm i nodemon -D  ---->(Instalacion de Nodemon)\r  * npm i morgan -D  ---->(Instalacion de Morgan(Logger))",
   "main": "index.js",
   "dependencies": {
+    "bootstrap3-dialog": "^1.35.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "morgan": "^1.10.0",

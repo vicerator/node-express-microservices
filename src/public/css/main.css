@@ -711,7 +711,13 @@ body, html {
   background-color: #343a40!important;
   color: white;
   padding: 10px;
+  display: flex;
 }
+
+.panel-heading span:first-child{
+  flex:1;
+}
+
 
 .list-group{
   max-height: 50vh;
