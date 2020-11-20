@@ -1,72 +1,6 @@
 "use strict";
 const URL = "http://localhost:8090";
 
-
-
-// (function ($) {
-//     "use strict";
-//     /*==================================================================
-//     [ Focus Contact2 ]*/
-//     $('.input100').each(function(){
-//         $(this).on('blur', function(){
-//             if($(this).val().trim() != "") {
-//                 $(this).addClass('has-val');
-//             }else {
-//                 $(this).removeClass('has-val');
-//             }
-//         });
-//     });
-
-//     /*==================================================================
-//     [ Validate ]*/
-//     let isValid = (input) => {
-//         if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-//             if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-//                 return false;
-//             }
-//         }else {
-//             if($(input).val().trim() == ''){
-//                 return false;
-//             }
-//         }
-//     }
-
-//     var input = $('.validate-input .input100');
-//     $('.validate-form').on('submit',function(){
-//         var check = true;
-//         for(var i=0; i<input.length; i++) {
-//             if(isValid(input[i]) == false){
-//                 showValidate(input[i]);
-//                 check=false;
-//             }
-//         }
-//         return check;
-//     });
-
-//     /**
-//      * 
-//      */
-//     $('.validate-form .input100').each(function(){
-//         $(this).focus(function(){
-//            hideValidate(this);
-//         });
-//     });
-
-
-
-//     function showValidate(input) {
-//         var thisAlert = $(input).parent();
-//         $(thisAlert).addClass('alert-validate');
-//     }
-
-//     function hideValidate(input) {
-//         var thisAlert = $(input).parent();
-//         $(thisAlert).removeClass('alert-validate');
-//     }
-    
-
-// })(jQuery);
-
 /**
  * CICLO TEMPORAL 
  */
@@ -110,6 +44,74 @@ function clicleTemporal(){
  */
 const DomUtils = {};
 
+
+
+/**
+ * 
+ */
+DomUtils.isValidform = (input) => {
+    if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+        if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+            return false;
+        }
+    }else {
+        if($(input).val().trim() == ''){
+            return false;
+        }
+    }
+}
+
+/**
+ * 
+ */
+DomUtils.onBlurform = () => {
+    $('.input100').each(function(){
+        $(this).on('blur', function(){
+            if($(this).val().trim() != "") {
+                $(this).addClass('has-val');
+                $(this).parent().removeClass('alert-validate');
+            }else {
+                $(this).removeClass('has-val');
+            }
+        });
+    });
+}
+
+/**
+ * 
+ */
+DomUtils.onSubmitform = () => {
+    var input = $('.validate-input .input100');
+    $('.validate-form').on('submit',function(){
+        var check = true;
+        for(var i=0; i<input.length; i++) {
+            if(DomUtils.isValidform(input[i]) == false){
+                $(input[i]).parent().addClass('alert-validate');
+                check=false;
+            }
+        }
+        return check;
+    });
+}
+
+/**
+ * 
+ */
+DomUtils.attachHandlerform = () => {
+    DomUtils.onBlurform();
+    DomUtils.onSubmitform();
+    DomUtils.onFocusform();
+}
+
+/**
+ * 
+ */
+DomUtils.attachHandlerServices = () => {
+    $("#add").on("click", function(evt){ServicesJava.add();});
+    $("#count").on("click", function(evt){ServicesJava.count();});
+    $("#getAll").on("click", function(evt){ServicesJava.getAll();});
+}
+
 /**
  * 
  */
@@ -139,7 +141,6 @@ const ServicesJava = {};
 ServicesJava.add = async function(){
     await fetch (URL+"/add?descripcion="+encodeURIComponent("Petición enviada desde Front-end"));
     await ServicesJava.getAll();
-    console.log("Añadido nuevo registro.");
 }
 
 /**
@@ -172,14 +173,17 @@ ServicesJava.getAll = async function(){
     var respuesta = await fetch(url);
     var response = await respuesta.json();
     await DomUtils.refreshTable(response);
-    console.log(response);
-    // $('#myModal .modal-body').text(JSON.stringify(response));
-    // $('#myModal').modal('show');
     return response;        
 }
 
+/**
+ * 
+ */
 $(document).ready(function () {
-    $("#add").on("click", function(evt){ServicesJava.add();});
-    $("#count").on("click", function(evt){ServicesJava.count();});
-    $("#getAll").on("click", function(evt){ServicesJava.getAll();});
+    // Eventos de Servicios
+    DomUtils.attachHandlerServices();
+
+    // Eventos de registro
+    DomUtils.attachHandlerform();
+
 });

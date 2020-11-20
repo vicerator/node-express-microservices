@@ -803,7 +803,8 @@ caption .captioncontainer{
 caption a{
   flex: 1;
 }
-caption form{
+caption form,
+caption div{
   flex: 2;
   display: flex;
 }
